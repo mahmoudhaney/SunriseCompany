@@ -17,11 +17,10 @@
   - Back-End:
     - C# · ASP.NET Core
     - SQL Server · Entity Framework
-    - APIs
+    - MVC Desing Pattern
 - Tools I used:
   - Visual Studio IDE
   - Microsoft SQL Server
-  - Swagger & Postman
   - Git & GitHub
   
 ### Other Project in this Training:
