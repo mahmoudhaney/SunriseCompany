@@ -1,0 +1,123 @@
+﻿@model Employee
+
+<h1 style="background-color: cyan; color:maroon" class="text-center">
+    This is Edit Page
+</h1>
+
+<div class="row">
+    <form method="post" asp-controller="Employees" asp-action="EditEmployee" class="col-4" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="CreatedAt" />
+        <input type="hidden" asp-for="ImageUrl" />
+
+        <div class="mb-2">
+            <label asp-for="FullName"></label>
+            <input type="text" asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="Position"></label>
+            <input type="text" asp-for="Position" class="form-control" />
+            <span asp-validation-for="Position" class="text-danger"></span>
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="Salary"></label>
+            <input type="number" asp-for="Salary" class="form-control" />
+            <span asp-validation-for="Salary" class="text-danger"></span>
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="Bonus"></label>
+            <input type="number" asp-for="Bonus" class="form-control" />
+            <span asp-validation-for="Bonus" class="text-danger"></span>
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="PhoneNumber"></label>
+            <input type="text" asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="Email"></label>
+            <input type="email" asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="ConfirmEmail"></label>
+            <input type="email" asp-for="ConfirmEmail" class="form-control" />
+            <span asp-validation-for="ConfirmEmail" class="text-danger"></span>
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="Password"></label>
+            <input type="password" asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="ConfirmPassword"></label>
+            <input type="password" asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="HiringDateTime"></label>
+            <input asp-for="HiringDateTime" class="form-control" />
+            <span asp-validation-for="HiringDateTime" class="text-danger"></span>
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="BirthDate"></label>
+            <input asp-for="BirthDate" class="form-control" />
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="AttendanceTime"></label>
+            <input asp-for="AttendanceTime" class="form-control" />
+            <span asp-validation-for="AttendanceTime" class="text-danger"></span>
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="LeavingTime"></label>
+            <input asp-for="LeavingTime" class="form-control" />
+            <span asp-validation-for="LeavingTime" class="text-danger"></span>
+        </div>
+
+        @*Departments List*@
+        <div class="mb-2">
+            <label asp-for="DepartmentId"></label>
+            <select class="form-control" asp-for="DepartmentId" asp-items="@(new SelectList(ViewBag.AllDepartments, "Id", "Name"))">
+                <option disabled selected>Select..</option>
+            </select>
+            <span asp-validation-for="DepartmentId" class="text-danger"></span>
+        </div>
+
+        <div class="mb-2">
+            <label asp-for="ImageUrl"></label>
+            <input type="file" class="form-control" name="imageFile" id="imageFile" accept=".png,.jpg" onchange="ChangeImage()" />
+        </div>
+
+        <div><button type="submit" class="btn btn-primary mt-2">Edit</button></div>
+    </form>
+
+    <img src="@Model.ImageUrl" id="empImage" class="col-6" style="object-fit:contain" asp-append-version="true"/>
+</div>
+
+
+<br />
+<a asp-controller="Employees" asp-action="GetIndexView" class="btn btn-success">Back To List</a>
+
+@section Scripts{
+    <script>
+        function ChangeImage() {
+            document.getElementById("empImage").src = window.URL.createObjectURL(document.getElementById("imageFile").files[0]);
+        }
+    </script>
+}

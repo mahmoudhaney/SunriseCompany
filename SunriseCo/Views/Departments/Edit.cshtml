@@ -1,0 +1,30 @@
+﻿@model Department
+
+<h1 style="background-color: cyan; color:maroon" class="text-center">
+    This is Edit Page for Departments
+</h1>
+
+<div class="row">
+    <form method="post" asp-controller="Departments" asp-action="EditDepartment" class="col-4">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <input type="hidden" asp-for="Id" />
+
+        <div>
+            <label>Name</label>
+            <input type="text" asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div>
+            <label>Description</label>
+            <input type="text" asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div><button type="submit" class="btn btn-primary mt-2">Edit</button></div>
+    </form>
+</div>
+
+
+
+<br />
+<a asp-controller="Departments" asp-action="GetIndexView" class="btn btn-success">Back To List</a>

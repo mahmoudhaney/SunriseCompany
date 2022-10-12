@@ -1,0 +1,71 @@
+﻿@* Details Page *@
+
+
+@model Employee
+
+<h1 style="background-color: cyan; color:maroon" class="text-center">
+    Welcome to Details View Page
+</h1>
+
+<div class="row">
+    <div class="col-6">
+        <dl class="row">
+            <dt class="col-4">@Html.DisplayNameFor(e => e.Id)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.Id)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.FullName)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.FullName)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.Position)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.Position)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.Salary)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.Salary)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.Bonus)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.Bonus)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.PhoneNumber)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.PhoneNumber)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.Email)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.Email)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.Password)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.Password)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.HiringDateTime)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.HiringDateTime)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.BirthDate)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.BirthDate)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.AttendanceTime)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.AttendanceTime)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.LeavingTime)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.LeavingTime)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.CreatedAt)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.CreatedAt)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.LastUpdateAt)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.LastUpdateAt)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.DepartmentId)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.Department.Name)</dd>
+        </dl>
+    </div>
+    <div class="col-6">
+        <img src="@Model.ImageUrl" id="empImage" class="col-6" style="object-fit:contain" asp-append-version="true" />
+    </div>
+</div>
+
+
+
+    
+
+
+
+
+<a asp-controller="Employees" asp-action="GetIndexView" class="btn btn-success">Back To Employees</a>

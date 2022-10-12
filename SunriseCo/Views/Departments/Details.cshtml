@@ -1,0 +1,28 @@
+﻿@* Details Page *@
+
+
+@model Department
+
+<h1 style="background-color: cyan; color:maroon">
+    Welcome to Details Page for Departments
+</h1>
+
+
+<dl>
+    <dt>Id</dt>
+    <dd>@Model.Id</dd>
+    <dt>Name</dt>
+    <dd>@Model.Name</dd>
+    <dt>Description</dt>
+    <dd>@Model.Description</dd>
+</dl>
+
+<h3>Employees:</h3>
+<ul class="list-group mb-5">
+    @foreach (var employee in Model.Employees)
+    {
+        <li class="list-group-item list-group-item-primary">@employee.FullName</li>
+    }
+</ul>
+
+<a asp-controller="Departments" asp-action="GetIndexView" class="btn btn-success">Back To Departments</a>
